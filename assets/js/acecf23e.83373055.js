@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdocusaurus_cheatsheets=globalThis.webpackChunkdocusaurus_cheatsheets||[]).push([[1903],{1912(s){s.exports=JSON.parse('{"blogBasePath":"/cheat-sheets/blog","blogTitle":"Blog","authorsListPath":"/cheat-sheets/blog/authors"}')}}]);
