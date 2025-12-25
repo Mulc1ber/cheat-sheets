@@ -4,22 +4,22 @@ sidebar_position: 1
 
 # Путиводитель по сайту:
 
-### [JavaScript](/docs/category/javascript/) (Не структурированный контент. Временно)
+### [JavaScript](./category/javascript/) (Не структурированный контент. Временно)
 
-### [TypeScript](/docs/category/typescript)
+### [TypeScript](./category/typescript)
 
-### [React](/docs/category/react) (create-react-app)
+### [React](./category/react) (create-react-app)
 
-### [Redux](/docs/category/redux)
+### [Redux](./category/redux)
 
-### [Docker](/docs/category/docker)
+### [Docker](./category/docker)
 
-### [Git](/docs/category/git) - система контроля версий
+### [Git](./category/git) - система контроля версий
 
-### [Сборщики](/docs/category/сборщики) проектов
+### [Сборщики](./category/сборщики) проектов
 
-### [Примеры](/docs/category/задачки) задачек на собеседовании
+### [Примеры](./category/задачки) задачек на собеседовании
 
-### [База данных](/docs/category/база-данных)
+### [База данных](./category/база-данных)
 
-### [SSH](docs/category/ssh)
+### [SSH](./category/ssh)
