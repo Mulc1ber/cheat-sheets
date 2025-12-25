@@ -1,0 +1,8 @@
+{
+  "label": "Задачки",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Задачки, которые даются на собеседованиях."
+  }
+}
