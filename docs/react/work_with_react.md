@@ -42,5 +42,3 @@ const obj2 = structuredClone(obj1);
 ```javascript
 const obj2 = _.cloneDeep(obj1);
 ```
-
-[Назад](/pages/react/README.md)

@@ -90,4 +90,3 @@ npm i eslint-config-prettier eslint-plugin-prettier prettier
 
 Проверка формирование `Alt + Shift + F`
 
-[Назад](/pages/react/README.md)
