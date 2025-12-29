@@ -10,6 +10,54 @@ sidebar_position: 2
 
 ---
 
+## Настройка Git
+
+### Настройка пользователя
+
+> Вы можете установить локальное имя и email пользователя при работе с конкретным репозиторием, для которого требуются учетные данные, отличные от ваших обычных, например, для работы и личных проектов.
+
+```bash title="Настройка локальной конфигурации git"
+git config --local user.name "Your Name"
+git config --local user.email "Your Email"
+```
+
+Существует порядок приоритетов настройки конфигурации git: `local` → `global` → `system`.
+
+```bash title="Просмотр локальных настроек (current repository)"
+git config --local --list
+```
+
+```bash title="Просмотр глобальных настроек (user-specific)"
+git config --global --list
+```
+
+```bash title="Просмотр системных настроек (system-wide)"
+git config --system --list
+```
+
+```bash title="Просмотр ВСЕХ настроек с учётом приоритетов"
+git config --list
+# Показывает все настройки в порядке: local → global → system
+```
+
+### Хранение файлов конфигураций
+
+Файлы конфигурации `git` хранятся в следующий местах:
+
+```bash title="Local (локальный)"
+.git/config
+```
+
+```bash title="Global (глобальный)"
+~/.gitconfig  # Linux/Mac
+C:\Users\ИмяПользователя\.gitconfig  # Windows
+```
+
+```bash title="System (системный)"
+/etc/gitconfig  # Linux/Mac
+C:\Program Files\Git\etc\gitconfig  # Windows
+```
+
 ## Работа с файлами и индексом
 
 ```bash title="Сбросить изменения в файле до состояния последнего коммита"
