@@ -1,8 +1,14 @@
+---
+sidebar_position: 1
+title: create-react-app
+description: Установка и настройка create-react-app
+---
+
 # Установка и настройка `create-react-app`
 
-Описание
+> Актуальную информацию по `Create React App` можно найти [на официальном сайте](https://create-react-app.dev/)
 
-Актуальную информацию по `Create React App` можно найти [на официальнос сайте](https://create-react-app.dev/)
+---
 
 > Перед запуском скрипта необходимо установить node.js
 
@@ -12,9 +18,9 @@
  npx create-react-app my-app
 ```
 
-### До настройка проекта
+## До настройка проекта
 
-#### Создания файла `.editorconfig`
+### Создания файла `.editorconfig`
 
 [Официальный сайт EditorConfig](https://editorconfig.org/)
 
@@ -31,11 +37,11 @@ indent_style = space
 indent_size = 4
 ```
 
-#### Установка зависимость (плагин) editorconfig
+### Установка зависимость (плагин) editorconfig
 
 Установить плагин в VS Code `EditorConfig for VS Code`
 
-#### Установка prettier и eslint
+### Установка prettier и eslint
 
 ```
 npm i eslint-config-prettier eslint-plugin-prettier prettier
@@ -58,7 +64,7 @@ npm i eslint-config-prettier eslint-plugin-prettier prettier
 ...
 ```
 
-#### Создать файл `.prettierrc.json` в корне проекта `my-app`
+### Создать файл `.prettierrc.json` в корне проекта `my-app`
 
 ```json
 {
@@ -89,4 +95,3 @@ npm i eslint-config-prettier eslint-plugin-prettier prettier
 ```
 
 Проверка формирование `Alt + Shift + F`
-

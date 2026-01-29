@@ -1,6 +1,10 @@
-# Копирование объектов (Иммутабельности)
+---
+sidebar_position: 2
+title: Иммутабельность
+description: Пример реализации иммутабельности через копирование
+---
 
-Описание
+# Копирование объектов
 
 ### 5 способов скопировать объект
 
@@ -13,32 +17,22 @@ const obj1 = { name: "oleg" };
 
 ---
 
-1. С помощью spread
-
-```javascript
+```javascript title="С помощью Spread оператора"
 const obj2 = { ...obj1 };
 ```
 
-2. С помощью Object.assign()
-
-```javascript
+```javascript title="С помощью Object.assign()"
 const obj2 = Object.assign({}, obj1);
 ```
 
-3. С помощью JSON
-
-```javascript
+```javascript title="С помощью JSON"
 const obj2 = JSON.parse(JSON.stringify(obj1));
 ```
 
-4. С помощью structuredClone() - глубокое копирование.
-
-```javascript
+```javascript title="С помощью structuredClone() - глубокое копирование"
 const obj2 = structuredClone(obj1);
 ```
 
-5. с помощью cloneDeep() - из библиотеки утилит JavaScript Lodash.
-
-```javascript
+```javascript title="С помощью cloneDeep() - из библиотеки утилит JavaScript Lodash"
 const obj2 = _.cloneDeep(obj1);
 ```
