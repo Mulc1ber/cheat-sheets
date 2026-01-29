@@ -1,0 +1,282 @@
+---
+sidebar_position: 3
+title: Установка GitLab Runner
+description: Описание установки GitLab Runner
+---
+
+<!-- # [Install GitLab Runner](https://docs.gitlab.com/runner/install/) -->
+
+> [Официальная документация GitLab по **Установке GitLab Runner**](https://docs.gitlab.com/runner/install/)
+
+---
+
+> [Установка GitLab Runner на ОС Linux](https://docs.gitlab.com/runner/install/linux-repository/)
+
+> [Установка GitLab Runner на ОС Linux ВРУЧНУЮ](https://docs.gitlab.com/runner/install/linux-manually/)
+
+> [Установка (запуск) GitLab Runner в docker контейнере](https://docs.gitlab.com/runner/install/docker/)
+
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+<Tabs>
+    <TabItem value="Linux">
+        > [Ссылка на официальный источник](https://docs.gitlab.com/runner/install/linux-repository/)
+
+        ### 1. Добавьте официальный репозиторий GitLab
+
+        1.  Загрузите скрипт настройки репозитория:
+
+        ```bash
+        curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" -o script.deb.sh
+        ```
+
+        2.  Проверьте скрипт перед его запуском
+
+        ```bash
+        less script.deb.sh
+        ```
+
+        3.  Запустите скрипт
+
+        ```bash
+        sudo bash script.deb.sh
+        ```
+
+        ### 2. Установка последней версии GitLab Runner
+
+        ```bash
+        sudo apt install gitlab-runner
+        ```
+
+        :::info
+        Версия GitLab Runner, соответствующая стандарту FIPS 140-2, доступна для дистрибутивов RHEL. Вы можете установить эту версию, используя в качестве имени пакета `gitlab-runner-fips` вместо `gitlab-runner`.
+        :::
+
+        ### 3. Установка определенной версии GitLab Runner
+
+        :::info
+        Начиная с версии `gitlab-runner` `v17.7.1`, когда вы устанавливаете определенную версию `gitlab-runner`, которая не является последней версией, вы должны явно установить необходимые пакеты `gitlab-runner-helper-packages` для этой версии. Это требование существует из-за ограничения `apt/apt-get`.
+        :::
+
+        ```bash
+        apt-cache madison gitlab-runner
+        sudo apt install gitlab-runner=17.7.1-1 gitlab-runner-helper-images=17.7.1-1
+        ```
+
+        Если вы попытаетесь установить определенную версию gitlab-runner без установки той же версии gitlab-runner-helper-images, вы можете столкнуться со следующей ошибкой:
+
+        ```bash
+        sudo apt install gitlab-runner=17.7.1-1
+        ...
+        The following packages have unmet dependencies:
+        gitlab-runner : Depends: gitlab-runner-helper-images (= 17.7.1-1) but 17.8.3-1 is to be installed
+        E: Unable to correct problems, you have held broken packages.
+        ```
+
+        ### 4. [Register a runner](./register_runner.mdx)
+
+    </TabItem>
+
+    <TabItem value="Linux manual">
+        > [Ссылка на официальный источник](https://docs.gitlab.com/runner/install/linux-manually/)
+
+        Вы можете установить GitLab Runner вручную, используя пакет deb или rpm или бинарный файл. Используйте этот подход в качестве крайней меры, если:
+        - Вы не можете использовать репозиторий deb/rpm для установки GitLab Runner.
+        - Ваша ОС GNU/Linux не поддерживается.
+
+        :::info
+        Если вы планируете использовать исполнитель Docker, для ручного запуска GitLab Runner, сначала установите Docker.
+        :::
+
+        <br/>
+
+        ## Использование пакета deb/rpm
+
+        Установка пакета для Debian/Ubuntu
+        ```bash
+        dpkg -i gitlab-runner-helper-images.deb gitlab-runner_<arch>.deb
+        ```
+
+        <br/>
+
+        ## Использование бинарного файла
+
+        1. Загрузка одиного из бинарных файлов для вашей системы:
+        ```bash
+        # Linux x86-64
+        sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
+
+        # Linux x86
+        sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-386"
+
+        # Linux arm
+        sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-arm"
+
+        # Linux arm64
+        sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-arm64"
+
+        # Linux s390x
+        sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-s390x"
+
+        # Linux ppc64le
+        sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-ppc64le"
+
+        # Linux riscv64
+        sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-riscv64"
+
+        # Linux loong64
+        sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-loong64"
+
+        # Linux x86-64 FIPS Compliant
+        sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64-fips"
+        ```
+
+        2. Установка разрешения на выполнение
+        ```bash
+        sudo chmod +x /usr/local/bin/gitlab-runner
+        ```
+
+        3. Создание пользователя GitLab CI
+        ```bash
+        sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+        ```
+
+        4. Установка и запуск как службу
+        ```bash
+        sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+        sudo gitlab-runner start
+        ```
+
+        <br/>
+
+        ## Следующие шаги
+
+        После установки [зарегистрируйте раннер](./register_runner.mdx) для завершения настройки.
+
+        Бинарный файл runner не включает предварительно созданные вспомогательные образы. Вы можете использовать эти команды, чтобы загрузить соответствующую версию архива вспомогательных образов и скопировать ее в подходящее место:
+        ```bash
+        mkdir -p /usr/local/bin/out/helper-images
+        cd /usr/local/bin/out/helper-images
+        ```
+
+        Выберите подходящий вспомогательный образ для вашей архитектуры:
+        ```bash
+        # Linux x86-64 alpine
+        wget https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/helper-images/prebuilt-alpine-x86_64.tar.xz
+
+        # Linux x86-64 alpine pwsh
+        wget https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/helper-images/prebuilt-alpine-x86_64-pwsh.tar.xz
+
+        # Linux s390x alpine
+        wget https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/helper-images/prebuilt-alpine-s390x.tar.xz
+
+        # Linux riscv64 alpine edge
+        wget https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/helper-images/prebuilt-alpine-edge-riscv64.tar.xz
+
+        # Linux arm64 alpine
+        wget https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/helper-images/prebuilt-alpine-arm64.tar.xz
+
+        # Linux arm alpine
+        wget https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/helper-images/prebuilt-alpine-arm.tar.xz
+        ```
+
+    </TabItem>
+
+    <TabItem value="Docker">
+        > [Ссылка на официальный источник](https://docs.gitlab.com/runner/install/docker/)
+
+        Вы можете запустить GitLab Runner в контейнере Docker для выполнения заданий CI/CD. Образ GitLab Runner Docker включает в себя все зависимости, необходимые для:
+        - Запуска GitLab Runner
+        - Выполнение заданий (jobs) CI/CD в контейнерах
+
+        Образы GitLab Runner Docker используют в качестве основы Ubuntu или Alpine Linux. Они оборачивают стандартную команду gitlab-runner, аналогично установке GitLab Runner непосредственно на хост.
+
+        Команда `gitlab-runner` выполняется в контейнере Docker. Эта настройка делегирует полный контроль над демоном Docker каждому контейнеру GitLab Runner. В результате изоляция гарантирует разрыв, если вы запускаете GitLab Runner внутри демона Docker, который также запускает другие полезные нагрузки.
+
+        В этой настройке каждая запускаемая вами команда GitLab Runner имеет эквивалент запуска в Docker, например:
+        - Команда **Runner**: `gitlab-runner <runner command and options...>`
+        - Команда **Docker**: `docker run <chosen docker options...> gitlab/gitlab-runner <runner command and options...>`
+
+        Например, чтобы получить справочную информацию верхнего уровня для GitLab Runner, замените часть команды gitlab-runner на docker run [docker options] gitlab/gitlab-runner, например:
+        ```bash
+        docker run --rm -t -i gitlab/gitlab-runner --help
+
+        NAME:
+        gitlab-runner - a GitLab Runner
+
+        USAGE:
+        gitlab-runner [global options] command [command options] [arguments...]
+
+        VERSION:
+        17.9.1 (bbf75488)
+
+        (...)
+        ```
+
+        ---
+
+        <br/>
+
+        ## Установка образа Docker и запуск контейнера
+
+        Предварительные условия:
+        - Вы установили [Docker](https://docs.docker.com/get-started/get-docker/);
+        - Вы прочитали [FAQ](https://docs.gitlab.com/runner/faq/), чтобы узнать о распространенных проблемах в GitLab Runner.
+
+        <br/>
+
+        ### Из локального системного тома
+
+        Чтобы использовать вашу локальную систему для тома конфигурации и других ресурсов, смонтированных в контейнере gitlab-runner запустите эту команду, изменив ее по мере необходимости:
+        ```bash
+        docker run -d --name gitlab-runner --restart always \
+        -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        gitlab/gitlab-runner:latest
+        ```
+
+        <br/>
+
+        ### Из тома Docker
+
+        Чтобы использовать контейнер конфигурации для монтирования пользовательского тома данных:
+        1. Создайте том Docker
+        ```bash
+        docker volume create gitlab-runner-config
+        ```
+
+        2. Запустите контейнер GitLab Runner, используя только что созданный том
+        ```bash
+        docker run -d --name gitlab-runner --restart always \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        -v gitlab-runner-config:/etc/gitlab-runner \
+        gitlab/gitlab-runner:latest
+        ```
+
+        ---
+
+        <br/>
+
+        ## Обновление версии раннера
+
+        1. Загрузите последнюю версию (или конкретный тег):
+        ```bash
+        docker pull gitlab/gitlab-runner:latest
+        ```
+        2. Остановите и удалите существующий контейнер:
+        ```bash
+        docker stop gitlab-runner && docker rm gitlab-runner
+        ```
+        3. Запустите контейнер, как вы это делали изначально:
+        ```bash
+        docker run -d --name gitlab-runner --restart always \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+        gitlab/gitlab-runner:latest
+        ```
+    </TabItem>
+
+</Tabs>

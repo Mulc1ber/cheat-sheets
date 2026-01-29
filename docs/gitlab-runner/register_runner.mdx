@@ -1,0 +1,72 @@
+---
+sidebar_position: 4
+title: Регистрация GitLab Runner
+description: Описание регистрации GitLab Runner
+---
+
+> [Официальная документация GitLab по **Регистрации Runner**](https://docs.gitlab.com/runner/register/)
+
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Команды для регистрации раннер без интерактивного режима, через дополнительные аргументы
+
+<Tabs>
+    <TabItem value="Linux">
+        #### Пример с документации GitLab
+        ```bash
+        sudo gitlab-runner register \
+        --non-interactive \
+        --url "https://gitlab.com/" \
+        --token "$RUNNER_TOKEN" \
+        --executor "docker" \
+        --docker-image alpine:latest \
+        --description "docker-runner"
+        ```
+    </TabItem>
+
+    <TabItem value="Docker">
+        #### Пример с документации GitLab
+        ```bash
+        docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \
+        --non-interactive \
+        --url "https://gitlab.com/" \
+        --token "$RUNNER_TOKEN" \
+        --executor "docker" \
+        --docker-image alpine:latest \
+        --description "docker-runner"
+        ```
+    </TabItem>
+
+</Tabs>
+
+---
+
+### Еще пример регистрации через Docker
+
+Останавливаем и удаляем текущий runner, если такой имеется
+
+```bash
+docker stop gitlab-runner
+docker rm gitlab-runner
+```
+
+Создаем docker для gitlab-runner
+
+```bash
+docker run -d --name gitlab-runner --restart always \
+--network host \
+-v /srv/gitlab-runner/config:/etc/gitlab-runner \
+-v /var/run/docker.sock:/var/run/docker.sock \
+gitlab/gitlab-runner:latest
+```
+
+После регистрируем сам runner внутри созданного докера
+
+```bash
+docker exec -it gitlab-runner gitlab-runner register  --url https://gitlab.com/  --token glrt-TOKEN
+```
+
+где `token` выдается при создании runner на настройках проекта `Settings -> CI/CD Settings -> Runner -> Register runner`
