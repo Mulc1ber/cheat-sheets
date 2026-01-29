@@ -1,10 +1,10 @@
 ---
 sidebar_position: 3
+title: Деплой на GitHub
+description: Инструкция по деплою проекта на GitHub
+toc_min_heading_level: 2
+toc_max_heading_level: 6
 ---
-
-# Варианты деплоя на GitHub
-
-Описание
 
 ## Вариант 1. Ручной деплой с использованием `gh-pages`
 
@@ -65,6 +65,8 @@ npm run deploy
 
 - Добавьте файл `CNAME` в папку `static/` с вашим доменом
 - Настройте DNS записи у регистратора домена
+
+---
 
 ## Вариант 2. Использование GitHub Actions
 

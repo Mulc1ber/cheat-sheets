@@ -1,10 +1,10 @@
 ---
 sidebar_position: 2
+title: Расширенный список команд
+description: Расширенный список команд для Git
 ---
 
 # Расширенный список команд для Git
-
-Описание
 
 > [Альтернативная шпаргалка](https://training.github.com/downloads/ru/github-git-cheat-sheet/)
 
@@ -57,6 +57,8 @@ C:\Users\ИмяПользователя\.gitconfig  # Windows
 /etc/gitconfig  # Linux/Mac
 C:\Program Files\Git\etc\gitconfig  # Windows
 ```
+
+---
 
 ## Работа с файлами и индексом
 
