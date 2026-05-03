@@ -86,8 +86,6 @@
 
 ---
 
----
-
 ## Примеры выполнения:
 
 ### 1. **Метод `push()`**:
@@ -217,7 +215,7 @@ console.log(evenNumbers); // Выведет: [2, 4]
 let numbers = [1, 2, 3, 4, 5];
 let sum = numbers.reduce(
   (accumulator, currentValue) => accumulator + currentValue,
-  0
+  0,
 );
 console.log(sum); // Выведет: 15
 ```
@@ -228,7 +226,7 @@ console.log(sum); // Выведет: 15
 let numbers = [1, 2, 3, 4, 5];
 let sumRight = numbers.reduceRight(
   (accumulator, currentValue) => accumulator + currentValue,
-  0
+  0,
 );
 console.log(sumRight); // Выведет: 15
 ```

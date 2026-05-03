@@ -3,16 +3,22 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex: 1;
+}
+
+.heroTitle {
+  font-size: 98px;
+  color: var(--ifm-color-primary-lightest);
+}
+
+.heroSubtitle {
+  font-size: 24px;
+  color: var(--ifm-color-primary-light);
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
   }
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

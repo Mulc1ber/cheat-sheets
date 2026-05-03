@@ -1,0 +1,8 @@
+{
+  "label": "GitLab Runner",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Здесь содержится вся информация по установке, настройки и работе GitLab Runner."
+  }
+}

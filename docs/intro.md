@@ -23,3 +23,5 @@ sidebar_position: 1
 ### [База данных](./category/база-данных)
 
 ### [SSH](./category/ssh)
+
+### [Terminal](./category/terminal) - список полезных команд в терминале

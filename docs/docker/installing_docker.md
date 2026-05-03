@@ -1,10 +1,12 @@
-# Команды по установке docker на удаленный сервер
+---
+sidebar_position: 2
+title: Установка Docker
+description: Команды по установке docker на удаленный сервер
+---
 
-Описание
+> Акутальная информация по установке на различные ОС находятся по ссылке -> [Official site Docker docs](https://docs.docker.com/engine/install/ubuntu/)
 
-> Акутальная информация по установке на различные ОС находятся по ссылке ниже
-
-[Official site Docker docs](https://docs.docker.com/engine/install/ubuntu/)
+---
 
 ## Удаление старых версий
 

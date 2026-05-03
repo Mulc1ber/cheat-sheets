@@ -1,6 +1,8 @@
-# Подходы к ведению Git
-
-Описание
+---
+sidebar_position: 4
+title: Ведение Git
+description: Подходы к ведению Git
+---
 
 ## GitFlow
 
