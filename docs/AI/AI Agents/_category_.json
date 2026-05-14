@@ -1,0 +1,8 @@
+{
+  "label": "AI Agents",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Список AI агентов с краткой информацией о них."
+  }
+}
