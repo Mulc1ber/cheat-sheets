@@ -364,6 +364,12 @@ git checkout -b [local_branch] origin/[remote_branch]
 git branch -u origin/main foo
 ```
 
+### Удаление ветки в удаленном репозитории
+
+```bash title="удаление ветки в удаленном репозитории"
+git push origin --delete [name_branch]
+```
+
 ---
 
 ## Патчи и файлы изменений
