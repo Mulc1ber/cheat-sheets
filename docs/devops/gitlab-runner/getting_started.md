@@ -1,6 +1,6 @@
 ---
-sidebar_position: 2
 title: Getting Started
+sidebar_position: 2
 description: Описание начала работы с GitLab Runner начиная с установки и его настройки
 ---
 
@@ -10,13 +10,13 @@ description: Описание начала работы с GitLab Runner нач�
 - Настройка исполнителей для конкретных рабочих нагрузок
 - Масштабирование потенциала в соответствии с ростом организации
 
----
+***
 
 > [Туториал. Создание, регистрация и запуск раннера (runner)](https://docs.gitlab.com/tutorials/create_register_first_runner/)
 
 > [Туториал. Автоматическое создание и регистрация раннера (runner)](https://docs.gitlab.com/tutorials/automate_runner_creation/)
 
----
+***
 
 ## Шаг 1: Установка раннера (runners)
 
@@ -32,9 +32,9 @@ description: Описание начала работы с GitLab Runner нач�
 
 Прежде чем зарегистрировать раннер, вам следует определить, хотите ли вы ограничить его конкретной группой или проектом GitLab. Во время регистрации вы можете настроить самоуправляемые исполнители с различными областями доступа, чтобы определить, для каких проектов они доступны:
 
-- [**Instance runners**](https://docs.gitlab.com/ci/runners/runners_scope/#instance-runners): Доступно для всех проектов в вашем экземпляре GitLab.
-- [**Group runners**](https://docs.gitlab.com/ci/runners/runners_scope/#group-runners): Доступно для всех проектов в определенной группе и ее подгруппах.
-- [**Project runners**](https://docs.gitlab.com/ci/runners/runners_scope/#project-runners): Доступно только для конкретного проекта.
+- **[Instance runners](https://docs.gitlab.com/ci/runners/runners_scope/#instance-runners)**: Доступно для всех проектов в вашем экземпляре GitLab.
+- **[Group runners](https://docs.gitlab.com/ci/runners/runners_scope/#group-runners)**: Доступно для всех проектов в определенной группе и ее подгруппах.
+- **[Project runners](https://docs.gitlab.com/ci/runners/runners_scope/#project-runners)**: Доступно только для конкретного проекта.
 
 ![image1](./img/getting_started/image1.png)
 
@@ -78,3 +78,5 @@ description: Описание начала работы с GitLab Runner нач�
 
 - [Configure GitLab Runners](https://docs.gitlab.com/runner/configuration/advanced-configuration/)
 - [CI/CD jobs](https://docs.gitlab.com/ci/jobs/)
+
+test
