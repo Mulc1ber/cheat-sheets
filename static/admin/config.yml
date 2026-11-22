@@ -1,0 +1,353 @@
+# ==========================================
+# BACKEND
+# ==========================================
+
+backend:
+  name: github
+  repo: Mulc1ber/cheat-sheets
+  branch: main
+  auth_methods:
+    - token
+
+# ==========================================
+# PUBLISH WORKFLOW
+# ==========================================
+# publish_mode: editorial_workflow
+
+# ==========================================
+# MEDIA STORAGE
+# ==========================================
+
+media_folder: static/img
+public_folder: /img
+
+media_libraries:
+  all:
+    max_file_size: 5242880
+
+  default:
+    config:
+      slugify_filename: true
+
+# ==========================================
+# COLLECTIONS
+# ==========================================
+
+collections:
+  # ----------------------------------------
+  # DOCUMENTATION
+  # ----------------------------------------
+
+  - name: docs
+    label: Documentation
+    label_singular: Document
+    description: Documentation pages
+    folder: docs
+    # CMS manages only .md files
+    extension: md
+    create: true
+
+    # Hierarchical folder structure
+    nested:
+      subfolders: false
+
+    # Allow editors to select document path
+    meta:
+      path: {}
+
+    # Изображения конкретного документа
+    media_folder: /docs/{{dirname}}/img/{{filename}}
+    public_folder: ./img/{{filename}}
+
+    fields:
+      - name: title
+        label: Title
+        widget: string
+
+      - name: sidebar_label
+        label: Sidebar Label
+        widget: string
+        required: false
+
+      - name: sidebar_position
+        label: Sidebar Position
+        widget: number
+        required: false
+
+      - name: description
+        label: Description
+        widget: text
+        required: false
+
+      - name: body
+        label: Content
+        widget: markdown
+
+# ==========================================
+# OUTPUT
+# ==========================================
+
+output:
+  omit_empty_optional_fields: true
+
+# backend:
+#   name: github
+#   repo: Mulc1ber/cheat-sheets
+#   branch: main
+#   base_url: https://YOUR_AUTH_WORKER.workers.dev
+#   auth_methods:
+#     - oauth
+
+# media_folder: static/img
+# public_folder: /img
+
+# collections:
+#   - name: docs
+#     label: Documentation
+#     folder: docs
+#     create: true
+
+#     nested:
+#       subfolders: false
+
+#     meta:
+#       path: {}
+
+#     fields:
+#       - name: title
+#         label: Title
+#         widget: string
+
+#       - name: description
+#         label: Description
+#         required: false
+#         widget: string
+
+#       - name: sidebar_position
+#         label: Sidebar Position
+#         required: false
+#         widget: number
+
+#       - name: body
+#         label: Content
+#         widget: markdown
+
+# output:
+#   omit_empty_optional_fields: true
+
+# ------------------------------------------------------------------------------
+
+# # =====================================
+# # BACKEND
+# # =====================================
+
+# backend:
+#   name: github
+#   repo: Mulc1ber/cheat-sheets
+#   branch: main
+
+#   base_url: https://cheat-sheets-pi.vercel.app
+#   auth_endpoint: auth
+
+#   squash_merges: true
+
+# # =====================================
+# # PUBLISHING
+# # =====================================
+
+# publish_mode: editorial_workflow
+
+# # =====================================
+# # MEDIA
+# # =====================================
+
+# media_folder: static/img/docs/uploads
+# public_folder: /img/docs/uploads
+
+# # =====================================
+# # LOCALIZATION
+# # =====================================
+
+# locale: ru
+
+# # =====================================
+# # COLLECTIONS
+# # =====================================
+
+# collections:
+#   # ========================================
+#   # MARKDOWN DOCUMENTS
+#   # ========================================
+
+#   - name: markdown_docs
+#     label: Markdown Documentation
+#     label_singular: Markdown Document
+
+#     folder: docs
+#     extension: md
+#     format: frontmatter
+
+#     create: true
+#     delete: true
+
+#     nested:
+#       depth: 8
+#       summary: "{{title}}"
+#       subfolders: false
+
+#     meta:
+#       path:
+#         label: Directory
+#         widget: string
+
+#     fields:
+#       - label: Title
+#         name: title
+#         widget: string
+
+#       - label: Description
+#         name: description
+#         widget: text
+#         required: false
+
+#       - label: Slug
+#         name: slug
+#         widget: string
+#         required: false
+
+#       - label: Sidebar Label
+#         name: sidebar_label
+#         widget: string
+#         required: false
+
+#       - label: Sidebar Position
+#         name: sidebar_position
+#         widget: number
+#         value_type: int
+#         required: false
+
+#       - label: Tags
+#         name: tags
+#         widget: list
+#         required: false
+
+#       - label: Body
+#         name: body
+#         widget: richtext
+#         modes:
+#           - rich_text
+#           - raw
+
+#   # ========================================
+#   # MDX DOCUMENTS
+#   # ========================================
+
+#   - name: mdx_docs
+#     label: MDX Documentation
+#     label_singular: MDX Document
+
+#     folder: docs
+#     extension: mdx
+#     format: frontmatter
+
+#     create: true
+#     delete: true
+
+#     nested:
+#       depth: 8
+#       summary: "{{title}}"
+#       subfolders: false
+
+#     meta:
+#       path:
+#         label: Directory
+#         widget: string
+
+#     fields:
+#       - label: Title
+#         name: title
+#         widget: string
+
+#       - label: Description
+#         name: description
+#         widget: text
+#         required: false
+
+#       - label: Slug
+#         name: slug
+#         widget: string
+#         required: false
+
+#       - label: Sidebar Label
+#         name: sidebar_label
+#         widget: string
+#         required: false
+
+#       - label: Sidebar Position
+#         name: sidebar_position
+#         widget: number
+#         value_type: int
+#         required: false
+
+#       - label: Tags
+#         name: tags
+#         widget: list
+#         required: false
+
+#       - label: MDX Source
+#         name: body
+#         widget: code
+#         default_language: markdown
+#         output_code_only: true
+
+#   # ========================================
+#   # CATEGORY SETTINGS
+#   # ========================================
+
+#   - name: category_settings
+#     label: Sidebar Categories
+
+#     files:
+#       - name: getting_started
+#         label: Getting Started
+#         file: docs/getting-started/_category_.json
+
+#         fields:
+#           - label: Label
+#             name: label
+#             widget: string
+
+#           - label: Position
+#             name: position
+#             widget: number
+#             value_type: int
+
+#           - label: Collapsible
+#             name: collapsible
+#             widget: boolean
+
+#           - label: Collapsed
+#             name: collapsed
+#             widget: boolean
+
+#       - name: guides
+#         label: Guides
+#         file: docs/guides/_category_.json
+
+#         fields:
+#           - label: Label
+#             name: label
+#             widget: string
+
+#           - label: Position
+#             name: position
+#             widget: number
+#             value_type: int
+
+#           - label: Collapsible
+#             name: collapsible
+#             widget: boolean
+
+#           - label: Collapsed
+#             name: collapsed
+#             widget: boolean
