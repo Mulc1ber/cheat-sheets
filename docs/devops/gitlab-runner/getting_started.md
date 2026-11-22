@@ -78,5 +78,3 @@ description: Описание начала работы с GitLab Runner нач�
 
 - [Configure GitLab Runners](https://docs.gitlab.com/runner/configuration/advanced-configuration/)
 - [CI/CD jobs](https://docs.gitlab.com/ci/jobs/)
-
-test
